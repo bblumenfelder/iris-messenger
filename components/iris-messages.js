@@ -11,9 +11,6 @@ export let IrisMessages = Vue.component('iris-messages', {
          */
         close (clickedMessage) {
             this.messenger.Messages = EditorHelpers.ArrayWithout(clickedMessage, this.messenger.Messages )
-/*
-            HermeneusEditor.Instance.Messages = EditorHelpers.ArrayWithout(clickedMessage, this.messages)
-*/
         },
         /**
          * What happens if user presses confirm-button

@@ -12,18 +12,17 @@ export class IrisMessenger {
 
 
     /***
-     *
-     * @param type
+     * Displays a message as given by the parameters
+     * @param type (success/info/danger/confirm)
      * @param title
      * @param message
      * @param callbackFunction
-     * @param selfDestruct
+     * @param selfDestruct (in ms)
      */
     display (type, title, message, callbackFunction, selfDestruct = false) {
         let newMessage = new IrisMessage(type, title, message, callbackFunction);
         if (this.Messages.includes(newMessage) !== true) {
             this.Messages.push(newMessage);
-            console.log('hit');
         }
 
 

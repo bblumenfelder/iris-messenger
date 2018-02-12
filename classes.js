@@ -19,6 +19,12 @@ export class IrisMessenger {
     }
 
 
+
+    /**
+     * Destructs newMessage after selfDestructTimer in ms
+     * @param newMessage
+     * @param selfDestructTimer
+     */
     destruct (newMessage, selfDestructTimer) {
         setTimeout(() => {
             this.Messages = EditorHelpers.ArrayWithout(newMessage, this.Messages);
@@ -26,6 +32,15 @@ export class IrisMessenger {
     }
 
 
+
+    /***
+     * Displays a message as given by the parameters
+     * @param type (success/info/danger/confirm)
+     * @param title
+     * @param message
+     * @param callbackFunction
+     * @param selfDestructTimer (in ms)
+     */
     display (type, title, message, callbackFunction, selfDestructTimer = false) {
         let newMessage = new IrisMessage(type, title, message, callbackFunction)
         if (this.Messages.includes(newMessage) !== true) {
