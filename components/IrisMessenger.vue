@@ -10,8 +10,9 @@
                     </div>
                 </div>
                 <div class="iris-message__body">
-                    <div class="iris-message__body__typeicon icon" :class="'icon-' + message.type"><img
-                            :src="'../img/svg/iris-icon-' + message.type + '.svg'" width="15" height="15" alt=""></div>
+                    <div class="iris-message__body__typeicon icon" :class="'icon-' + message.type">
+                        <hermeneus-icon :name="message.type"></hermeneus-icon>
+                    </div>
                     <div class="iris-message__body__message iris-message__body__message-success"
                          v-if="message.type==='success'" v-html="message.message"></div>
                     <div class="iris-message__body__message iris-message__body__message-info"
@@ -31,17 +32,18 @@
 </template>
 
 <script>
-
+    import HermeneusIcon from '../../hermeneus.icons/HermeneusIcon'
 
     export default {
         name: "iris-messenger",
-
+        components: {
+            'hermeneus-icon': HermeneusIcon
+        },
         props: ['messenger'],
         methods: {
-            /**
-             * Close message (remove from message-array
-             * @param clickedMessage
-             */
+            /*
+             Close message (remove from message-array
+             @param clickedMessage*/
             close (clickedMessage) {
                 this.messenger.Messages = this.messenger.Messages.filter(Item => {
                     return Item !== clickedMessage;

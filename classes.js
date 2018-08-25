@@ -42,7 +42,7 @@ export class IrisMessenger {
      * @param selfDestructTimer (in ms)
      */
     display (type, title, message, callbackFunction, selfDestructTimer = false) {
-        let newMessage = new IrisMessage(type, title, message, callbackFunction)
+        let newMessage = new IrisMessage(type, title, message, callbackFunction);
         if (this.Messages.includes(newMessage) !== true) {
             this.Messages.push(newMessage);
         }
